@@ -1,14 +1,16 @@
 <input type="text" [(ngModel)]="title" />
 {{ title }}
 
+<app-product></app-product>
 <div *ngIf="1 === 1">
   Este es un div
 </div>
 
 <div [ngSwitch]="title">
-  <p *ngSwitchCase = "'Ariel'">Se ingresó Ariel</p>
+  <p *ngSwitchCase="'Ariel'">Se ingresó Ariel</p>
   <p *ngSwitchCase="'Ayala'">Se ingresó Ayala</p>
   <p *ngSwitchCase="'Vargas'">Se ingresó Vargas</p>
+  <p *ngSwitchDefault>No hay coincidencia</p>
 </div>
 
 <button (click)="addItem()">
