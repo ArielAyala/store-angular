@@ -5,13 +5,26 @@
   Este es un div
 </div>
 
+<div [ngSwitch]="title">
+  <p *ngSwitchCase = "'Ariel'">Se ingresó Ariel</p>
+  <p *ngSwitchCase="'Ayala'">Se ingresó Ayala</p>
+  <p *ngSwitchCase="'Vargas'">Se ingresó Vargas</p>
+</div>
+
 <button (click)="addItem()">
   Add item
 </button>
 
 <ul>
+  <li *ngIf="items.length === 0">La lista está vacía</li>
   <li *ngFor="let item of items; index as i">
     {{ item }} {{ i }}
     <button (click)="deleteItem(i)">Delete item</button>
   </li>
 </ul>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" alt="" />
+  {{ product.price }}
+</div>
