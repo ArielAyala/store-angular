@@ -11,6 +11,7 @@
 
 <ul>
   <li *ngFor="let item of items; index as i">
-    {{ item }} {{i}}
+    {{ item }} {{ i }}
+    <button (click)="deleteItem(i)">Delete item</button>
   </li>
 </ul>
