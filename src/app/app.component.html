@@ -2,6 +2,7 @@
 {{ title }}
 
 <app-product></app-product>
+
 <div *ngIf="1 === 1">
   Este es un div
 </div>
@@ -26,7 +27,7 @@
 </ul>
 
 <div *ngFor="let product of products">
-  {{ product.title }}
+  <h3>{{ product.title }}</h3>
   <img [src]="product.image" alt="" />
-  {{ product.price }}
-</div>
+  <strong {{ product.price }}></strong>
+  </div>
