@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './product.module'
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -53,7 +53,7 @@ export class AppComponent {
     title: 'Stickers',
     price: 80000,
     description: 'bla bla bla bla bla'
-  },];
+  }];
 
   addItem() {
     this.items.push("nuevo item")
@@ -61,5 +61,9 @@ export class AppComponent {
 
   deleteItem(index: number) {
     this.items.splice(index, 1);
+  }
+  clickProduct(id: number){
+    console.log('product');
+    console.log(id);
   }
 }
