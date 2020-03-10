@@ -10,6 +10,8 @@ import { Product } from './product.model';
 export class AppComponent {
   title: 'store-angular';
 
+  power = 10;
+
   items = ['ariel', 'rick', 'john'];
 
   products: Product[] = [{
