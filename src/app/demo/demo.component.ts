@@ -20,7 +20,7 @@ export class DemoComponent implements OnInit {
 
 
   addItem() {
-    this.items.push("nuevo item")
+    this.items.push('nuevo item')
   }
 
   deleteItem(index: number) {
