@@ -24,7 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule 
   ]
 })
 export class SharedModule { }
