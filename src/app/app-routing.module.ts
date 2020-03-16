@@ -36,7 +36,7 @@ const routes: Routes = [
       {
         path: 'contact',
         canActivate: [AdminGuard],
-        component: ContactComponent
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
       }
     ]
   },
