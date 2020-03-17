@@ -5,7 +5,7 @@ import { ContactComponent } from './components/contact.component';
 
 const routes: Routes = [
     {
-        path: 'contact',
+        path: '',
         component: ContactComponent
     }
 ];
