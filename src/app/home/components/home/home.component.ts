@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+
 import Swiper from 'swiper';
 
 @Component({
@@ -12,11 +13,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     this.mySwiper = new Swiper('.swiper-container');
   }
 

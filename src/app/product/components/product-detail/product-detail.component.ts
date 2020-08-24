@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from '../../../product.model';
+
+import { ProductsService } from './../../../core/services/products/products.service';
+import { Product } from './../../../core/models/product.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,19 +18,19 @@ export class ProductDetailComponent implements OnInit {
     private productsService: ProductsService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      this.fecthProduct(id);
-      //this.product = this.productsService.getProduct(id);
+      this.fetchProduct(id);
+      // this.product = this.productsService.getProduct(id);
     });
   }
 
-  fecthProduct(id: string) {
+  fetchProduct(id: string) {
     this.productsService.getProduct(id)
-      .subscribe(product => {
-        this.product = product;
-      })
+    .subscribe(product => {
+      this.product = product;
+    });
   }
 
   createProduct() {
@@ -38,31 +39,30 @@ export class ProductDetailComponent implements OnInit {
       title: 'nuevo desde angular',
       image: 'assets/images/banner-1.jpg',
       price: 3000,
-      description: 'Nuevo producto listo'
-    }
+      description: 'nuevo producto'
+    };
     this.productsService.createProduct(newProduct)
-      .subscribe(product => {
-        console.log(product)
-      })
+    .subscribe(product => {
+      console.log(product);
+    });
   }
 
   updateProduct() {
     const updateProduct: Partial<Product> = {
-      price: 5000,
-      description: 'Edicion titulo'
-    }
+      price: 555555,
+      description: 'edicion titulo'
+    };
     this.productsService.updateProduct('2', updateProduct)
-      .subscribe(product => {
-        console.log(product);
-      })
+    .subscribe(product => {
+      console.log(product);
+    });
   }
 
   deleteProduct() {
-    this.productsService.deleteProduct('2')
-      .subscribe(respuesta => {
-        console.log(respuesta);
-      })
+    this.productsService.deleteProduct('222')
+    .subscribe(rta => {
+      console.log(rta);
+    });
   }
-
 
 }

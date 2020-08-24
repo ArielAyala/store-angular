@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../../../product.model';
-import { HttpClient } from '@angular/common/http'
-import { environment } from '../../../../environments/environment'
+import { HttpClient } from '@angular/common/http';
+
+import { Product } from './../../models/product.model';
+
+import { environment } from './../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class ProductsService {
   ) { }
 
   getAllProducts() {
-    return this.http.get<Product[]>(environment.url_api + '/products/');
+    return this.http.get<Product[]>(`${environment.url_api}/products`);
   }
 
   getProduct(id: string) {
@@ -21,7 +23,7 @@ export class ProductsService {
   }
 
   createProduct(product: Product) {
-    return this.http.post(environment.url_api + '/products/', product);
+    return this.http.post(`${environment.url_api}/products`, product);
   }
 
   updateProduct(id: string, changes: Partial<Product>) {
@@ -31,5 +33,4 @@ export class ProductsService {
   deleteProduct(id: string) {
     return this.http.delete(`${environment.url_api}/products/${id}`);
   }
-
 }

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from './../../../core/models/product.model';
 import { ProductsService } from './../../../core/services/products/products.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-products-list',
+  templateUrl: './products-list.component.html',
+  styleUrls: ['./products-list.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsListComponent implements OnInit {
 
-  products: Product[] = [];
+  products = [];
+  displayedColumns: string[] = ['id', 'title', 'price', 'actions'];
 
   constructor(
     private productsService: ProductsService
@@ -20,15 +20,17 @@ export class ProductsComponent implements OnInit {
     this.fetchProducts();
   }
 
-  clickProduct(id: number) {
-    console.log('product');
-    console.log(id);
-  }
-
   fetchProducts() {
     this.productsService.getAllProducts()
     .subscribe(products => {
       this.products = products;
+    });
+  }
+
+  deleteProduct(id: string) {
+    this.productsService.deleteProduct(id)
+    .subscribe(rta => {
+      this.fetchProducts();
     });
   }
 
