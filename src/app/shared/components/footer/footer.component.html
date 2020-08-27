@@ -6,19 +6,13 @@
           <h3>Productos</h3>
           <ul>
             <li>
-              <a routerLink="/products" [queryParams]="{ type: 'news' }"
-                >Nuevos Productos</a
-              >
+              <a routerLink="/products" [queryParams]="{ type: 'news' }">Nuevos Productos</a>
             </li>
             <li>
-              <a routerLink="/products" [queryParams]="{ type: 'offer' }"
-                >En oferta</a
-              >
+              <a routerLink="/products" [queryParams]="{ type: 'offer' }">En oferta</a>
             </li>
             <li>
-              <a routerLink="/products" [queryParams]="{ type: 'latest' }"
-                >Últimos productos</a
-              >
+              <a routerLink="/products" [queryParams]="{ type: 'latest' }">Últimos productos</a>
             </li>
           </ul>
         </div>
@@ -35,10 +29,11 @@
       <div class="col-xs-12 col-md-4">
         <div class="box">
           <h3>Contacto</h3>
-          <!-- <mat-form-field color="accent" class="full-width">
-                <input [formControl]="emailInput" matInput placeholder="Su correo" type="email">
-              </mat-form-field>
-              <button (click)="registerMail()" [disabled]="emailInput.invalid" mat-raised-button color="accent">Suscribirse</button> -->
+          <mat-form-field>
+            <input matInput placeholder="Digite su email" [formControl]="emailField" type="email">
+          </mat-form-field>
+          <button [disabled]="emailField.invalid" mat-raised-button (click)="sendMail()">Enviar</button>
+          <p *ngIf="emailField.invalid && emailField.dirty">El campo no es válido</p>
         </div>
       </div>
     </div>
