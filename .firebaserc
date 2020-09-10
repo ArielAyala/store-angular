@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "store-angular-881f5": {
+      "hosting": {
+        "store-angular": [
+          "store-angular-881f5"
+        ]
+      }
+    }
+  }
+}
